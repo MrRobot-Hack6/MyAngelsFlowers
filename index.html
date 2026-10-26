@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>For you, my angel, Kaylee</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Pinyon+Script&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #fbf1ee;
+        --bg2: #f3d9d6;
+        --ink: #4a2330;
+        --soft: #8a5565;
+        --paper: #fffaf6;
+        --accent: #c2274b;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #1d1218;
+          --bg2: #2e1822;
+          --ink: #f6e4e6;
+          --soft: #d1a3b0;
+          --paper: #2a1a22;
+          --accent: #ff7a95;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #1d1218;
+        --bg2: #2e1822;
+        --ink: #f6e4e6;
+        --soft: #d1a3b0;
+        --paper: #2a1a22;
+        --accent: #ff7a95;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+      }
+      body {
+        min-height: 100vh;
+        background: radial-gradient(
+          ellipse at 50% 0%,
+          var(--bg2),
+          var(--bg) 70%
+        );
+        color: var(--ink);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 28px 18px 48px;
+        overflow-x: hidden;
+      }
+      h1 {
+        font-family: "Pinyon Script", "Snell Roundhand", cursive;
+        font-weight: 400;
+        font-size: clamp(2.4rem, 9vw, 3.6rem);
+        margin: 0 0 4px;
+        text-align: center;
+        color: var(--accent);
+      }
+      .sub {
+        margin: 0 0 6px;
+        color: var(--soft);
+        font-style: italic;
+        font-size: 1.15rem;
+        text-align: center;
+      }
+      svg {
+        width: min(92vw, 420px);
+        height: auto;
+        display: block;
+        overflow: visible;
+      }
+      .sway {
+        transform-origin: 200px 420px;
+        animation: sway 6s ease-in-out infinite;
+      }
+      @keyframes sway {
+        50% {
+          transform: rotate(1.2deg);
+        }
+      }
+      button {
+        font: inherit;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+        background: var(--accent);
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 30px;
+        cursor: pointer;
+        margin-top: 6px;
+      }
+      button:focus-visible {
+        outline: 3px solid var(--ink);
+        outline-offset: 3px;
+      }
+      .note {
+        max-width: 460px;
+        width: 100%;
+        margin-top: 22px;
+        background: var(--paper);
+        border: 1px solid var(--bg2);
+        border-radius: 6px;
+        padding: 30px 28px;
+        box-shadow: 0 14px 40px rgba(120, 30, 60, 0.18);
+        text-align: left;
+        line-height: 1.65;
+        font-size: 1.28rem;
+        display: none;
+      }
+      .note.open {
+        display: block;
+        animation: rise 0.9s ease-out both;
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(14px) scale(0.98);
+        }
+      }
+      .note .to {
+        font-family: "Pinyon Script", cursive;
+        font-size: 2rem;
+        color: var(--accent);
+        margin: 0 0 8px;
+      }
+      .note p {
+        margin: 0 0 14px;
+      }
+      .note .sig {
+        font-family: "Pinyon Script", cursive;
+        font-size: 1.9rem;
+        color: var(--accent);
+        text-align: right;
+        margin: 10px 0 0;
+      }
+      .petal {
+        position: fixed;
+        top: -30px;
+        width: 14px;
+        height: 18px;
+        border-radius: 70% 0 70% 0;
+        opacity: 0.8;
+        pointer-events: none;
+        animation: fall linear forwards;
+      }
+      @keyframes fall {
+        to {
+          transform: translate(var(--dx), 110vh) rotate(540deg);
+          opacity: 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .sway,
+        .note.open {
+          animation: none;
+        }
+        .petal {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>For you, my angel, Kaylee</h1>
+    <p class="sub">Hibiscus for your warmth, chrysanthemums for my devotion</p>
+
+    <svg
+      viewBox="0 0 400 470"
+      role="img"
+      aria-label="A bouquet of hibiscus and chrysanthemum flowers tied with a ribbon"
+    >
+      <defs>
+        <linearGradient id="lf" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#5fa36b" />
+          <stop offset="1" stop-color="#2f6b4a" />
+        </linearGradient>
+        <linearGradient id="pp" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#f7d9dd" />
+          <stop offset="1" stop-color="#e9aebb" />
+        </linearGradient>
+      </defs>
+      <g class="sway">
+        <g id="stems"></g>
+        <g id="leaves"></g>
+        <path
+          d="M120 440 L200 330 L280 440 Q200 470 120 440Z"
+          fill="url(#pp)"
+          stroke="#d68aa0"
+          stroke-width="1.5"
+        />
+        <path
+          d="M200 330 L175 442 M200 330 L225 442"
+          stroke="#d68aa0"
+          stroke-width="1.2"
+          fill="none"
+        />
+        <g id="flowers"></g>
+        <path
+          d="M170 372 Q200 392 230 372 Q222 360 200 366 Q178 360 170 372Z"
+          fill="#c2274b"
+        />
+        <path
+          d="M200 370 Q180 400 168 420 M200 370 Q220 400 232 420"
+          stroke="#c2274b"
+          stroke-width="7"
+          stroke-linecap="round"
+          fill="none"
+        />
+        <circle cx="200" cy="370" r="7" fill="#9b1c3b" />
+      </g>
+    </svg>
+
+    <button id="btn" aria-expanded="false" aria-controls="note">
+      Open your note
+    </button>
+
+    <section class="note" id="note" aria-live="polite">
+      <p>
+        In a world where everything moves so fast, having you as my person is
+        the greatest blessing I’ve ever known. You bring a warmth into my life
+        that turns even the ordinary moments into something special. Thank you
+        for your soft heart, your laugh, and the incredible way you love me.
+      </p>
+      <p>
+        I don’t just love you for who you are, I cherish the way my life feels
+        whenever you’re near. You are so deeply appreciated, today and always,
+        my angel ❤️
+      </p>
+    </section>
+
+    <script>
+      const NS = "http://www.w3.org/2000/svg",
+        $ = (id) => document.getElementById(id);
+      function el(p, t, a) {
+        const e = document.createElementNS(NS, t);
+        for (const k in a) e.setAttribute(k, a[k]);
+        p.appendChild(e);
+        return e;
+      }
+      function hib(cx, cy, r, c1, c2, rot) {
+        const g = el($("flowers"), "g", {
+          transform: `translate(${cx} ${cy}) rotate(${rot})`,
+        });
+        for (let i = 0; i < 5; i++) {
+          const d = `M0 0 C ${-r * 0.7} ${-r * 0.2}, ${-r * 0.85} ${-r * 0.95}, ${-r * 0.1} ${-r} Q0 ${-r * 1.06} ${r * 0.1} ${-r} C ${r * 0.85} ${-r * 0.95}, ${r * 0.7} ${-r * 0.2}, 0 0Z`;
+          el(g, "path", {
+            d,
+            fill: c1,
+            stroke: c2,
+            "stroke-opacity": 0.35,
+            "stroke-width": 1,
+            transform: `rotate(${i * 72})`,
+            opacity: 0.96,
+          });
+          el(g, "path", {
+            d: `M0 0 L0 ${-r * 0.8}`,
+            stroke: c2,
+            "stroke-opacity": 0.25,
+            "stroke-width": 1,
+            transform: `rotate(${i * 72})`,
+          });
+        }
+        el(g, "circle", { r: r * 0.3, fill: c2, opacity: 0.85 });
+        el(g, "circle", { r: r * 0.14, fill: "#7a0f2c" });
+        el(g, "path", {
+          d: `M0 0 Q${r * 0.3} ${-r * 0.2} ${r * 0.62} ${-r * 0.5}`,
+          stroke: "#f4c542",
+          "stroke-width": 3,
+          fill: "none",
+          "stroke-linecap": "round",
+        });
+        [
+          [0.5, -0.42],
+          [0.58, -0.48],
+          [0.62, -0.5],
+          [0.55, -0.38],
+          [0.66, -0.42],
+        ].forEach((p) =>
+          el(g, "circle", {
+            cx: r * p[0],
+            cy: r * p[1],
+            r: 2.6,
+            fill: "#f4c542",
+          }),
+        );
+      }
+      function chr(cx, cy, r, cols, rot) {
+        const g = el($("flowers"), "g", {
+          transform: `translate(${cx} ${cy}) rotate(${rot})`,
+        });
+        for (let k = 0; k < 4; k++) {
+          const n = 18 - k * 2,
+            L = r * (1 - k * 0.2),
+            w = r * 0.13 * (1 - k * 0.1);
+          for (let i = 0; i < n; i++) {
+            const a = (i * 360) / n + (k % 2) * (180 / n);
+            el(g, "path", {
+              d: `M0 0 Q${w} ${-L * 0.55} 0 ${-L} Q${-w} ${-L * 0.55} 0 0Z`,
+              fill: cols[k],
+              stroke: cols[Math.min(k + 1, 3)],
+              "stroke-width": 0.6,
+              "stroke-opacity": 0.5,
+              transform: `rotate(${a})`,
+            });
+          }
+        }
+        el(g, "circle", { r: r * 0.09, fill: cols[3] });
+      }
+      const F = [
+        // x,y,len-flower
+        {
+          t: "c",
+          x: 78,
+          y: 182,
+          r: 46,
+          c: ["#d9c4f0", "#c4a6e6", "#ad87d9", "#f6e27a"],
+          rot: 10,
+        },
+        {
+          t: "c",
+          x: 322,
+          y: 178,
+          r: 46,
+          c: ["#fff7e0", "#fbe7a0", "#f5cf5e", "#e8a93c"],
+          rot: -8,
+        },
+        {
+          t: "c",
+          x: 200,
+          y: 60,
+          r: 42,
+          c: ["#ffffff", "#fbe3ea", "#f5c1d0", "#f2d46a"],
+          rot: 0,
+        },
+        { t: "h", x: 200, y: 178, r: 78, a: "#e5304f", b: "#8f1236", rot: -6 },
+        { t: "h", x: 108, y: 290, r: 62, a: "#f58aa8", b: "#c2274b", rot: 20 },
+        { t: "h", x: 296, y: 290, r: 62, a: "#ff8a5c", b: "#c2274b", rot: -18 },
+        {
+          t: "c",
+          x: 200,
+          y: 312,
+          r: 40,
+          c: ["#fff", "#fdecef", "#f7cdd8", "#f2d46a"],
+          rot: 6,
+        },
+      ];
+      F.forEach((f) => {
+        const sx = 200 + (f.x - 200) * 0.15;
+        el($("stems"), "path", {
+          d: `M200 420 Q${sx} ${(420 + f.y) / 2 + 20} ${f.x} ${f.y}`,
+          stroke: "#3f7d52",
+          "stroke-width": 5,
+          fill: "none",
+          "stroke-linecap": "round",
+        });
+      });
+      [
+        [70, 250, -50],
+        [330, 250, 50],
+        [130, 200, -30],
+        [272, 205, 30],
+        [150, 340, -70],
+        [250, 340, 70],
+        [56, 120, -65],
+        [344, 118, 65],
+      ].forEach((l) => {
+        el($("leaves"), "path", {
+          d: "M0 0 C18 -14 52 -14 74 0 C52 14 18 14 0 0Z",
+          fill: "url(#lf)",
+          transform: `translate(${200 + (l[0] - 200) * 0.35} ${l[1] + 60}) rotate(${l[2] > 0 ? l[2] - 180 + 180 : l[2] - 180}) scale(${l[0] < 200 ? 1 : 1})`,
+          opacity: 0.95,
+        });
+      });
+      F.forEach((f) =>
+        f.t === "h"
+          ? hib(f.x, f.y, f.r, f.a, f.b, f.rot)
+          : chr(f.x, f.y, f.r, f.c, f.rot),
+      );
+
+      const btn = $("btn"),
+        note = $("note");
+      function petals() {
+        const cols = ["#e5304f", "#f58aa8", "#ff8a5c", "#fbe3ea", "#f5cf5e"];
+        for (let i = 0; i < 26; i++) {
+          const p = document.createElement("div");
+          p.className = "petal";
+          p.style.left = Math.random() * 100 + "vw";
+          p.style.background = cols[i % cols.length];
+          p.style.setProperty("--dx", Math.random() * 160 - 80 + "px");
+          p.style.animationDuration = 4 + Math.random() * 4 + "s";
+          p.style.animationDelay = Math.random() * 1.5 + "s";
+          document.body.appendChild(p);
+          setTimeout(() => p.remove(), 10000);
+        }
+      }
+      btn.addEventListener("click", () => {
+        const open = note.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open);
+        btn.textContent = open ? "Close your note" : "Open your note";
+        if (open) {
+          petals();
+          setTimeout(
+            () => note.scrollIntoView({ behavior: "smooth", block: "center" }),
+            150,
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
